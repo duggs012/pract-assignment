@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Module Marks Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div style="width: 70%; margin: auto;">
+    <canvas id="marksChart"></canvas>
+  </div>9[p;l]
+
+  <script>
+    const ctx = document.getElementById('marksChart').getContext('2d');
+    const marksChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['HSCI231', 'HMAT241', 'TCNP201', 'HMAT111'],
+        datasets: [
+          {
+            label: 'Lowest Mark',
+            data: [35, 40, 38, 30, 45],
+            backgroundColor:"red"
+          },
+          {
+            label: 'Highest Mark',
+            data: [89, 92, 90, 88, 95],
+            backgroundColor: "blue" 
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Marks'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Modules'
+            }
+          }
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Lowest and Highest Marks per Module'
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
